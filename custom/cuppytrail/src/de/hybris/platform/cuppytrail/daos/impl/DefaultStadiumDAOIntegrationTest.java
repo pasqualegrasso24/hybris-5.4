@@ -20,18 +20,14 @@ import org.junit.Test;
 
 public class DefaultStadiumDAOIntegrationTest extends ServicelayerTransactionalTest
 {
-	/** As this is an integration test, the class (object) being tested gets injected here. */
 	@Resource
 	private StadiumDAO stadiumDAO;
 
-	/** Platform's ModelService used for creation of test data. */
 	@Resource
 	private ModelService modelService;
 
-	/** Name of test stadium. */
 	private static final String STADIUM_NAME = "wembley";
 
-	/** Capacity of test stadium. */
 	private static final Integer STADIUM_CAPACITY = Integer.valueOf(12345);
 
 	@Test
@@ -61,7 +57,6 @@ public class DefaultStadiumDAOIntegrationTest extends ServicelayerTransactionalT
 	@Test
 	public void testFindStadiums_EmptyStringParam()
 	{
-		//calling findStadiumsByCode() with an empty String - returns no results
 		final List<StadiumModel> stadiums = stadiumDAO.findStadiumsByCode("");
 		assertTrue("No Stadium should be returned", stadiums.isEmpty());
 	}
@@ -70,7 +65,6 @@ public class DefaultStadiumDAOIntegrationTest extends ServicelayerTransactionalT
 	@Test(expected = IllegalArgumentException.class)
 	public void testfindStadiums_NullParam()
 	{
-		//calling findStadiumByCode with null should throw an IllegalArgumentException
 		stadiumDAO.findStadiumsByCode(null); //method's return value not captured
 	}
 

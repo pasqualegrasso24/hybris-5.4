@@ -20,17 +20,11 @@ import org.springframework.stereotype.Component;
 @Component(value = "stadiumDAO") //bean
 public class DefaultStadiumDAO implements StadiumDAO
 {
-	/**
-	 * We use hybris' FlexibleSearchService for running queries against the database
-	 *
-	 * @see "https://wiki.hybris.com/display/release5/FlexibleSearch"
-	 */
+
 	@Autowired
 	private FlexibleSearchService flexibleSearchService;
 
-	/**
-	 * Finds all Stadiums by performing a FlexibleSearch using the {@link FlexibleSearchService}.
-	 */
+
 	@Override
 	public List<StadiumModel> findStadiums()
 	{
@@ -41,21 +35,11 @@ public class DefaultStadiumDAO implements StadiumDAO
 
 		final FlexibleSearchQuery query = new FlexibleSearchQuery(queryString);
 
-		// Note that we could specify paginating logic by providing a start and count variable (commented out below)
-		// This can provide a safeguard against returning very large amounts of data, or hogging the database when there are
-		// for example millions of items being returned.
-		// As we know that there are only a few persisted stadiums in this use case we do not need to provide this.
 
-		//query.setStart(start);
-		//query.setCount(count);
-
-		// Return the list of StadiumModels.
 		return flexibleSearchService.<StadiumModel> search(query).getResult();
 	}
 
-	/**
-	 * Finds all Stadiums by given code by performing a FlexibleSearch using the {@link FlexibleSearchService}.
-	 */
+
 	@Override
 	public List<StadiumModel> findStadiumsByCode(final String code)
 	{
