@@ -42,11 +42,17 @@
 	<!-- some other examples of a pointcut that matches everything: <aop:pointcut id="profiledMethods" expression="bean(de.hybris.platform.jalo.user.Customer) 
 		&amp;&amp; !execution(* getPK(..))" /> <aop:pointcut id="profiledMethods" expression="execution(* *(..))" /> -->
 
+	<alias name="defaultStadiumFacade" alias="stadiumFacade" />
+	<bean id="defaultStadiumFacade" class="de.hybris.platform.cuppytrail.facades.impl.DefaultStadiumFacade">
+		<property name="stadiumService" ref="stadiumService" />
+	</bean>
+
 	<alias name="defaultStadiumService" alias="stadiumService" />
 
 	<bean id="defaultStadiumService" class="de.hybris.platform.cuppytrail.impl.DefaultStadiumService">
 		<property name="stadiumDAO" ref="stadiumDAO" />
 	</bean>
+
 
 	<bean id="cuppytrailSystemSetup" class="de.hybris.platform.cuppytrail.systemsetup.CuppyTrailSystemSetup" scope="tenant">
 		<property name="importService" ref="importService" />
