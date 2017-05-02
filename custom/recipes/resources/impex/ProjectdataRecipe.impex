@@ -1,0 +1,36 @@
+INSERT_UPDATE Recipe;code[unique=true];nome[lang=it];descrizione[lang=it];tempo;difficolta(code);persone;recipeEntry(quantita)
+							;recipe0;name0;description0;30;easy;5;1,2,3,4
+					 ;recipe1;name1;description1;30;easy;5;1,2,3,4
+					 ;recipe2;name2;description2;30;easy;5;1,2,3,4
+					 ;recipe3;name3;description3;50;medium;5;1,2,3,4
+					 ;recipe4;name4;description4;50;medium;5;1,2,3,4
+					 ;recipe5;name5;description5;50;medium;5;1,2,3,4
+					 ;recipe6;name6;description6;60;high;5;1,2,3,4
+					 ;recipe7;name7;description7;60;high;5;1,2,3,4
+					 ;recipe8;name8;description8;60;high;5;1,2,3,4
+					 ;recipe9;name9;description9;60;high;5;1,2,3,4
+					  ;recipe10;name10;description9;70;high;5;1,2,3,4
+
+INSERT_UPDATE RecipeEntry;prodotto(code);quantita[unique=true];nome[lang=it];unity(code)
+					 ;food0;2;name0;pieces
+					 ;food1;1;name1;pieces
+					 ;food2;2;name2;pieces
+					 ;food3;3;name3;pieces
+					 ;food4;4;name4;pieces
+					 ;food5;5;name5;pieces
+					 ;food6;6;name6;pieces
+					 ;food7;7;name7;pieces
+					 ;food8;8;name8;pieces
+					 ;food9;9;name9;pieces
+
+INSERT_UPDATE Food;code[unique=true];nome[lang=it];descrizione[lang=it]
+					 ;food0;name0;description0
+					 ;food1;name1;description1
+					 ;food2;name2;description2
+					 ;food3;name3;description3
+					 ;food4;name4;description4
+					 ;food5;name5;description5
+					 ;food6;name6;description6
+					 ;food7;name7;description7
+					 ;food8;name8;description8
+					 ;food9;name9;description9
