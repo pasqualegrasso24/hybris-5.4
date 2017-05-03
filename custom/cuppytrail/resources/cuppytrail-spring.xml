@@ -57,7 +57,15 @@
 	<bean id="cuppytrailSystemSetup" class="de.hybris.platform.cuppytrail.systemsetup.CuppyTrailSystemSetup" scope="tenant">
 		<property name="importService" ref="importService" />
 	</bean>
+	
+	<bean id="sendRankingJob" class="de.hybris.platform.cuppytrail.jobs.SendRankingJob" autowire="byName"></bean>
 
+	<bean id="stadiumCapacityInterceptor" class="de.hybris.platform.cuppytrail.interceptors.StadiumCapacityInterceptor"/>
+	<bean id="StadiumInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+    <property name="interceptor" ref="stadiumCapacityInterceptor"/>
+    <property name="typeCode" value="Stadium"/>
+    
+</bean>
 
-
+<bean id="stadiumListener" class="de.hybris.platform.cuppytrail.events.StadiumEventListener"/>
 </beans>

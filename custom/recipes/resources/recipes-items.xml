@@ -16,10 +16,29 @@
 		<relation code="Recipe2RecipeEntry" localized="false" generate="true" autocreate="true">
 			<sourceElement type="Recipe" qualifier="recipe" cardinality="one" />
 			<targetElement type="RecipeEntry" qualifier="recipeEntry" cardinality="many" />
-		</relation>		
+		</relation>
+		<relation code="Menu2Recipe" localized="false" generate="true" autocreate="true">
+		<deployment table="Menu2Recipe" typecode="30004" />
+			<sourceElement type="Menu" qualifier="menus" cardinality="many" />			
+			<targetElement type="Recipe" qualifier="recipes" cardinality="many" />
+		</relation>
 	</relations>
 
 	<itemtypes>
+		<itemtype code="Menu" generate="true" autocreate="true">
+			<deployment table="Menu" typecode="30003" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="code">
+					<persistence type="property" />
+					<modifiers optional="false" unique="true" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="nome">
+					<persistence type="property"></persistence>
+					<modifiers optional="false" unique="false" />
+				</attribute>				
+				
+			</attributes>
+		</itemtype>
 		<itemtype code="Recipe" generate="true" autocreate="true">
 			<deployment table="Recipe" typecode="30000" />
 			<attributes>
@@ -51,7 +70,7 @@
 					<persistence type="dynamic" attributeHandler="numberOfIngredientsAttributeHandler"></persistence>
 					<modifiers optional="true" read="true" write="false" />
 				</attribute>
-				
+
 			</attributes>
 		</itemtype>
 		<itemtype code="Food" generate="true" autocreate="true">
